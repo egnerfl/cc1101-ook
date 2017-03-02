@@ -4,7 +4,6 @@
 CC1101 cc1101;
 
 byte counter;
-
 byte syncWord[] = {0x55, 0x55};
 
 void setup()
@@ -15,7 +14,6 @@ void setup()
   // reset the counter
   counter = 0;
   Serial.println("Initialize and set registers.");
-
 
   cc1101.init();
 
@@ -66,6 +64,9 @@ void send_data() {
 
 void loop()
 {
-  send_data();
-  delay(100);
+  for (int i = 0; i <= 10; i++) {
+    send_data();
+    delay(10);
+  }
+  delay(2000);
 }
